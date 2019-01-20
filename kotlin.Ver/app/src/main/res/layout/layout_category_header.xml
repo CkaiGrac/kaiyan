@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <ImageView
+    android:id="@+id/iv_header_image"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="fitXY" />
+
+  <RelativeLayout
+    android:id="@+id/toolbar_bg"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="#FFFFFF">
+
+    <ImageView
+      android:id="@+id/back"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:src="@mipmap/ic_action_back_white" />
+
+    <TextView
+      android:id="@+id/tv_temp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:text="参考"
+      android:textSize="25sp"
+      android:textStyle="bold"
+      android:visibility="invisible" />
+  </RelativeLayout>
+
+  <TextView
+    android:id="@+id/tv_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dp"
+    android:textColor="#FFFFFF"
+    android:textSize="25sp"
+    android:textStyle="bold" />
+
+  <TextView
+    android:id="@+id/tv_description"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tv_name"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="15dp"
+    android:textColor="#FFFFFF"
+    android:textSize="17sp" />
+
+  <TextView
+    android:id="@+id/attention"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tv_description"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/rect_radius"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:text="+ 关注"
+    android:textColor="#FFFFFF"
+    android:textSize="18sp"
+    android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <com.exercise.ckaiself.kaiyan_kotlinver.view.PercentTextView
+    android:id="@+id/tv_text_end"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:text="-The End-"
+    android:textSize="45px" />
+</FrameLayout>
