@@ -15,12 +15,18 @@ data class Item(val type: String, val data: Data?, val tag: String) : Serializab
             val title: String,
             val text: String,
             val description: String,
+            val actionUrl: String,
             val library: String,
             val tags: ArrayList<Tag>,
             val consumption: Consumption,
             val slogan: String,
             val provider: Provider,
             val category: String,
+            val parentReply: ParentReply,
+            val user: User,
+            val message: String,
+            val likeCount: Int,
+            val createTime: Long,
             val author: Author,
             val cover: Cover,
             val playUrl: String,
@@ -100,7 +106,19 @@ data class Item(val type: String, val data: Data?, val tag: String) : Serializab
                 val urlList: ArrayList<Url>
         ) : Serializable
 
-
         data class Url(val size: Long) : Serializable
+
+        data class User(
+                val uid: Long,
+                val nickname: String,
+                val avatar: String,
+                val userType: String,
+                val ifPgc: Boolean) : Serializable
+
+        data class ParentReply(
+                val user: User,
+                val message: String
+        ) : Serializable
+
     }
 }

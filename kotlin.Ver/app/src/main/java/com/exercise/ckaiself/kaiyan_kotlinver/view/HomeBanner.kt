@@ -1,4 +1,4 @@
-package com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean
+package com.exercise.ckaiself.kaiyan_kotlinver.view
 
 import android.content.Context
 import android.graphics.Color
@@ -10,10 +10,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import com.exercise.ckaiself.kaiyan_kotlinver.R
 import com.exercise.ckaiself.kaiyan_kotlinver.util.DisplayManager
-import com.exercise.ckaiself.kaiyan_kotlinver.view.BannerAdapter
-import com.exercise.ckaiself.kaiyan_kotlinver.view.HomeBannerTransformer
-import com.exercise.ckaiself.kaiyan_kotlinver.view.Indicator
-import com.exercise.ckaiself.kaiyan_kotlinver.view.JumpShowTextView
+import com.exercise.ckaiself.kaiyan_kotlinver.adapter.BannerAdapter
+import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.Item
 
 /**
  * @author Ckai

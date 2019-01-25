@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/root"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".DetailActivity">
+
+  <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+    android:id="@+id/videoView"
+    android:layout_width="match_parent"
+    android:layout_height="250dp" />
+
+  <ImageView
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/videoView" />
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/videoView"
+    android:background="#5000" />
+
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/rv_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/videoView"
+    android:overScrollMode="never" />
+
+
+
+</RelativeLayout>

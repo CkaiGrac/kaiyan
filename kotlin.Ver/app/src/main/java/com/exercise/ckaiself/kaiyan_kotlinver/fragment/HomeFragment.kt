@@ -14,7 +14,7 @@ import com.exercise.ckaiself.kaiyan_kotlinver.adapter.HomeAdapter
 import com.exercise.ckaiself.kaiyan_kotlinver.base.BaseFragment
 import com.exercise.ckaiself.kaiyan_kotlinver.base.tabsId
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.contract.HomeContract
-import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.HomeBanner
+import com.exercise.ckaiself.kaiyan_kotlinver.view.HomeBanner
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.HomeBean
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.Item
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.presenter.HomePresenter

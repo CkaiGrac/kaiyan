@@ -3,8 +3,10 @@ package com.exercise.ckaiself.kaiyan_kotlinver.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.HomeBanner
+import com.exercise.ckaiself.kaiyan_kotlinver.DetailActivity
+import com.exercise.ckaiself.kaiyan_kotlinver.view.HomeBanner
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.Item
+import com.exercise.ckaiself.kaiyan_kotlinver.toActivityWithSerializable
 import com.exercise.ckaiself.kaiyan_kotlinver.util.DisplayManager
 import com.exercise.ckaiself.kaiyan_kotlinver.view.HomeTextHeaderItem
 import com.exercise.ckaiself.kaiyan_kotlinver.view.StandardVideoItem
@@ -97,7 +99,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
                 }
             }
             TYPE_STANDARD -> (holder?.itemView as StandardVideoItem).let {
-                //TODO setOnClickListener
+                it.setOnClickListener { v-> v.context.toActivityWithSerializable<DetailActivity>(itemList[position + bannerItemListCount - 1]) }
                 it.setData(itemList[position + bannerItemListCount - 1], "feed")
             }
             TYPE_HEADER_TEXT -> {

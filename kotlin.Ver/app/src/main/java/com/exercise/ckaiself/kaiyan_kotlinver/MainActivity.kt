@@ -61,15 +61,5 @@ class MainActivity : BaseActivity() {
 
     }
 
-    fun record(view: View) {
-        OPState.isRecord = true
-        Toast.makeText(this, "开始录制", Toast.LENGTH_SHORT).show()
-        record()
-    }
-
-    fun play(view: View) {
-        OPState.play = true
-        Toast.makeText(this, "开始播放", Toast.LENGTH_SHORT).show()
-    }
 
 }

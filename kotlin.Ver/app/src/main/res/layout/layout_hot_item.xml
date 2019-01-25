@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="250dp">
+
+  <ImageView
+    android:id="@+id/hot_image"
+    android:layout_width="match_parent"
+    android:layout_height="250dp" />
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="#5000" />
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <com.exercise.ckaiself.kaiyan_kotlinver.view.PercentTextView
+      android:id="@+id/jst_name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:lines="1"
+      android:textColor="#FFFFFF"
+      android:textSize="45px"
+      android:textStyle="bold" />
+
+    <com.exercise.ckaiself.kaiyan_kotlinver.view.PercentTextView
+      android:id="@+id/jst_tag"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/jst_name"
+      android:gravity="center_horizontal"
+      android:textColor="#FFFFFF"
+      android:textSize="40px" />
+
+  </RelativeLayout>
+</FrameLayout>

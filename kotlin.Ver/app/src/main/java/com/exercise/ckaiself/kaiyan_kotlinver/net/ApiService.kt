@@ -2,6 +2,7 @@ package com.exercise.ckaiself.kaiyan_kotlinver.net
 
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.Category
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.HomeBean
+import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.HotCategory
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.Issue
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -47,5 +48,25 @@ interface ApiService {
      */
     @GET("v4/categories/detail/index")
     fun getCategoryItemList(@Query("id") id: Long): Observable<Issue>
+
+    /**
+     * 热门分类
+     */
+    @GET
+    fun getHotCategory(@Url url: String): Observable<HotCategory>
+
+
+    /**
+     * 根据item id获取相关视频
+     */
+    @GET("v4/video/related?")
+    fun getRelatedData(@Query("id") id: Long): Observable<Issue>
+
+    /**
+     * 获取回复
+     */
+    @GET("v2/replies/video?")
+    fun getReply(@Query("videoId") videoId: Long): Observable<Issue>
+
 
 }

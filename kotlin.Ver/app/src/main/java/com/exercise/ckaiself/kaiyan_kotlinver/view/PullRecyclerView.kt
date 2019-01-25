@@ -16,7 +16,6 @@ import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.exercise.ckaiself.kaiyan_kotlinver.R
-import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.HomeBanner
 
 /**
  * @author Ckai

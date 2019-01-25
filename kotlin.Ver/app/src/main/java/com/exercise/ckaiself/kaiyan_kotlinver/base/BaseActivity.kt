@@ -23,43 +23,8 @@ abstract class BaseActivity : AppCompatActivity(), RxNetManager {
 
     override fun onResume() {
         super.onResume()
-        record()
-        play()
     }
 
-
-    fun record() {
-        if (OPState.isRecord) {
-            OPState.play = false
-            activityEvents = LinkedList()
-            startTime = System.currentTimeMillis()
-            OPState.states.add(activityEvents)
-        }
-    }
-
-    private fun play() {
-        if (OPState.play) {
-            OPState.isRecord = false
-            handler.postDelayed({
-                Thread(Runnable {
-                    if (!OPState.states.isEmpty()) {
-                        //remove()方法移除并返回队列头部的元素
-                        val pop = OPState.states.remove()
-                        while (!pop.isEmpty()) {
-                            val state = pop.remove()
-                            handler.postDelayed({
-                                if (state.event == null) {
-                                    finish()
-                                } else {
-                                    dispatchTouchEvent(state.event)
-                                }
-                            }, state.time)
-                        }
-                    }
-                }).start()
-            }, 500)
-        }
-    }
 
     override fun onBackPressed() {
         val state = State()

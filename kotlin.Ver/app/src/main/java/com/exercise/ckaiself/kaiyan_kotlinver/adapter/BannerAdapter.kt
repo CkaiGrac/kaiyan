@@ -1,10 +1,12 @@
-package com.exercise.ckaiself.kaiyan_kotlinver.view
+package com.exercise.ckaiself.kaiyan_kotlinver.adapter
 
 import android.support.v4.view.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
+import com.exercise.ckaiself.kaiyan_kotlinver.DetailActivity
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.Item
 import com.exercise.ckaiself.kaiyan_kotlinver.toActivityWithSerializable
+import com.exercise.ckaiself.kaiyan_kotlinver.view.HomeBannerItem
 
 /**
  * @author Ckai
@@ -37,14 +39,14 @@ class BannerAdapter : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         if(viewList.size <= position){
-            val homeBannerItem = HomeBannerItem(container.context,datas!![position])
+            val homeBannerItem = HomeBannerItem(container.context, datas!![position])
             viewList.add(homeBannerItem)
         }
         val view = viewList[position]
         container.addView(view)
         viewList[position].play()
         //view.setOnClickListener{ v -> v.context.toActivityWithSerializable<>()}
-        //TODO view.setOnClickListener{ v -> v.context.toActivityWithSerializable<>()}
+        view.setOnClickListener { v->v.context.toActivityWithSerializable<DetailActivity>(datas!![position]) }
         return view
     }
 

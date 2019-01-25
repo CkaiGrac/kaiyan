@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="15dp"
+  android:orientation="vertical">
+
+  <com.exercise.ckaiself.kaiyan_kotlinver.view.JumpShowTextView
+    android:id="@+id/tv_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp" />
+
+  <com.exercise.ckaiself.kaiyan_kotlinver.view.JumpShowTextView
+    android:id="@+id/tv_tag"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp" />
+
+  <com.exercise.ckaiself.kaiyan_kotlinver.view.JumpShowTextView
+    android:id="@+id/tv_intro"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.exercise.ckaiself.kaiyan_kotlinver.view.PercentTextView
+      android:id="@+id/tv_favorites"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="30dp"
+      android:drawableLeft="@mipmap/ic_action_favorites_without_padding"
+      android:drawablePadding="10dp"
+      android:gravity="center"
+      android:textColor="#FFFFFF"
+      android:textSize="38px" />
+
+    <com.exercise.ckaiself.kaiyan_kotlinver.view.PercentTextView
+      android:id="@+id/tv_share"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="30dp"
+      android:drawableLeft="@mipmap/ic_action_share_without_padding"
+      android:drawablePadding="10dp"
+      android:gravity="center"
+      android:textColor="#FFFFFF"
+      android:textSize="38px" />
+
+    <com.exercise.ckaiself.kaiyan_kotlinver.view.PercentTextView
+      android:id="@+id/tv_reply"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="30dp"
+      android:drawableLeft="@mipmap/ic_action_reply_without_padding"
+      android:drawablePadding="10dp"
+      android:gravity="center"
+      android:textColor="#FFFFFF"
+      android:textSize="38px" />
+
+    <com.exercise.ckaiself.kaiyan_kotlinver.view.PercentTextView
+      android:id="@+id/tv_download"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="30dp"
+      android:drawableLeft="@mipmap/ic_action_offline_without_padding"
+      android:drawablePadding="10dp"
+      android:gravity="center"
+      android:text="缓存"
+      android:textColor="#FFFFFF"
+      android:textSize="38px" />
+
+  </LinearLayout>
+
+</LinearLayout>

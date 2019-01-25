@@ -3,7 +3,9 @@ package com.exercise.ckaiself.kaiyan_kotlinver.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import com.exercise.ckaiself.kaiyan_kotlinver.DetailActivity
 import com.exercise.ckaiself.kaiyan_kotlinver.mvp.model.bean.Item
+import com.exercise.ckaiself.kaiyan_kotlinver.toActivityWithSerializable
 import com.exercise.ckaiself.kaiyan_kotlinver.view.StandardVideoItem
 
 /**
@@ -20,6 +22,11 @@ class CategoryDetailAdapter : RecyclerView.Adapter<CategoryDetailAdapter.ViewHol
     }
 
     fun addData(itemList: ArrayList<Item>) {
+        /**
+         * 过滤掉 videoCollectionOfHorizontalScrollCard 和 textHeader类型的数据
+         */
+        itemList.filter { item -> item.type == "videoCollectionOfHorizontalScrollCard" }.forEach { item -> itemList.remove(item) }
+        itemList.filter { item -> item.type == "textHeader" }.forEach { item -> itemList.remove(item) }
         this.categorys.addAll(itemList)
         notifyDataSetChanged()
     }
@@ -31,7 +38,7 @@ class CategoryDetailAdapter : RecyclerView.Adapter<CategoryDetailAdapter.ViewHol
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         (holder.itemView as StandardVideoItem).let {
-            //TODO setOnlickListener
+            it.setOnClickListener { v -> v.context.toActivityWithSerializable<DetailActivity>(categorys[position ]) }
             it.setData(categorys[position],"categorydetail")
         }
     }
