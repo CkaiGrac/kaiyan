@@ -29,10 +29,10 @@ class HomePresenter(view: HomeContract.IView) : HomeContract.IPresenter {
     @SuppressLint("CheckResult")
     override fun requestFirstData() {
         homeModel.loadFirstData()
-            .flatMap({ homeBean ->
+            .flatMap { homeBean ->
                 bannerHomeBean = homeBean
                 homeModel.loadMoreData(homeBean.nextPageUrl)
-            })
+            }
             .subscribe({ homeBean ->
                 nextPageUrl = homeBean.nextPageUrl
                 //这里记录轮播图的长度，在Adapter中使用
