@@ -17,21 +17,21 @@ class Index extends StatefulWidget {
   }
 }
 
-class _IndexState extends State<Index> with TickerProviderStateMixin {
-  int _tabIndex = 0;
+class _IndexState extends State<Index> {
+  int _currentIndex = 0;
   var tabImages;
   var appBarTitles = ['开眼精选', '分类', '热门'];
   List<StatefulWidget> _pageList;
 
   Image getTabIcon(int currentIndex) {
-    if (currentIndex == _tabIndex) {
+    if (currentIndex == _currentIndex) {
       return tabImages[currentIndex][1];
     }
     return tabImages[currentIndex][0];
   }
 
   Text getTabTitle(int curIndex) {
-    if (curIndex == _tabIndex) {
+    if (curIndex == _currentIndex) {
       return new Text(appBarTitles[curIndex],
           style: new TextStyle(fontSize: 12.0, color: const Color(0xff1296db)));
     } else {
@@ -42,6 +42,12 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
 
   Image getTabImage(path) {
     return new Image.asset(path, width: 48.0, height: 48.0);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initData();
   }
 
   void initData() {
@@ -65,10 +71,9 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    initData();
     final BottomNavigationBar bottomNavigationBar = new BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      currentIndex: _tabIndex,
+      currentIndex: _currentIndex,
       items: <BottomNavigationBarItem>[
         new BottomNavigationBarItem(
           icon: getTabIcon(0),
@@ -85,14 +90,23 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
       ],
       onTap: (int index) {
         setState(() {
-          _tabIndex = index;
+          _currentIndex = index;
         });
       },
     );
 
     return new MaterialApp(
       home: new Scaffold(
-        body: _pageList[_tabIndex],
+        body: new Container(
+          child: IndexedStack(
+            children: <Widget>[
+              new HomePage(),
+              new CategoryPage(),
+              new HotPage()
+            ],
+            index: _currentIndex,
+          ),
+        ),
         bottomNavigationBar: bottomNavigationBar,
       ),
     );
