@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'dart:io';
 import '../bean/Issue.dart';
 import '../bean/DataHub.dart';
+import '../widget/jump_show.dart';
 /*
  * @Created Date: 2019-01-26 17:06
  * @Author: Ckai
@@ -22,6 +23,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   DataHub dataHub;
+  List<DataHub> moreData = <DataHub>[];
+  Dio dio = new Dio();
 
   @override
   void initState() {
@@ -34,6 +37,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
     final double bottomHeight = MediaQuery.of(context).padding.bottom;
+
+    if (dataHub != null) {
+      loadMore();
+      //print(moreData[0].nextPageUrl);
+    }
+
     return new MaterialApp(
       home: new Scaffold(
         body: dataHub == null
@@ -42,33 +51,85 @@ class _HomePageState extends State<HomePage> {
               )
             : new Padding(
                 padding: EdgeInsets.only(top: statusBarHeight),
-                child: new ConstrainedBox(
-                  constraints: new BoxConstraints.loose(
-                    new Size(MediaQuery.of(context).size.width,
-                        1 / 3 * MediaQuery.of(context).size.height),
-                  ),
-                  child: new Swiper(
-                    itemCount: 5,
-                    autoplay: true,
-                    pagination: new SwiperPagination(),
-                    itemBuilder: (BuildContext context, int index) {
-                      return new Stack(
-                        fit: StackFit.expand,
-                        children: <Widget>[
-                          new Image.network(
-                              dataHub
-                                  .issueList[0].itemList[index].data.cover.feed,
-                              fit: BoxFit.fill),
-                          new Container(
-                            color: Color(0x55000000),
-                          ),
-                        ],
-                      );
-                    },
-                    onTap: (index) {
-                      print(dataHub.issueList[0].itemList[index].data.playUrl);
-                    },
-                  ),
+                child: new Column(
+                  children: <Widget>[
+                    new ConstrainedBox(
+                      constraints: new BoxConstraints.loose(
+                        new Size(MediaQuery.of(context).size.width,
+                            3.5 / 10 * MediaQuery.of(context).size.height),
+                      ),
+                      child: new Swiper(
+                        itemCount: 5,
+                        autoplayDelay: 8000,
+                        //autoplay: true,
+                        pagination: new SwiperPagination(),
+                        itemBuilder: (BuildContext context, int index) {
+                          return new Stack(
+                            fit: StackFit.expand,
+                            children: <Widget>[
+                              new Image.network(
+                                  dataHub.issueList[0].itemList[index].data
+                                      .cover.feed,
+                                  fit: BoxFit.fill),
+                              new Container(
+                                color: Color(0x55000000),
+                              ),
+                              //new Image.asset("images/home_page_header_icon.png",width: 20,height: 20,),
+                              new Positioned(
+                                right: 10.0,
+                                left: 10.0,
+                                bottom: 69.0,
+                                child: new Image(
+                                  image: new AssetImage(
+                                      "images/home_page_header_icon.png"),
+                                  height: 35.0,
+                                ),
+                              ),
+                              new Positioned(
+                                bottom: 47.0,
+                                left: 1.0,
+                                right: 1.0,
+                                child: new Center(
+                                  child: new JumpShowTextView(
+                                    milliseconds: 800,
+                                    text: dataHub.issueList[0].itemList[index]
+                                        .data.title,
+                                    style: new TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 17.0,
+                                        fontFamily: 'LanTing-Bold'),
+                                  ),
+                                ),
+                              ),
+                              new Positioned(
+                                bottom: 30.0,
+                                left: 1.0,
+                                right: 1.0,
+                                child: new Center(
+                                  child: new JumpShowTextView(
+                                    milliseconds: 800,
+                                    text: dataHub.issueList[0].itemList[index]
+                                        .data.slogan,
+                                    style: new TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 13.0,
+                                        fontFamily: 'LanTing'),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                        onTap: (index) {
+                          print(dataHub
+                              .issueList[0].itemList[index].data.playUrl);
+                        },
+                        onIndexChanged: (index) {
+                          print(index);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
       ),
@@ -77,7 +138,6 @@ class _HomePageState extends State<HomePage> {
 
   void getBanner() async {
     try {
-      Dio dio = new Dio();
       dio.options.headers["User-Agent"] =
           "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36";
       dio.options.connectTimeout = 8000;
@@ -100,6 +160,26 @@ class _HomePageState extends State<HomePage> {
         //删除toRemove中的元素
         dataHub.issueList[0].itemList.removeWhere((e) => toRemove.contains(e));
         setState(() {});
+      }
+    } catch (e) {
+      return print(e);
+    }
+  }
+
+  void loadMore() async {
+    try {
+      dio.options.headers["User-Agent"] =
+          "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36";
+      dio.options.connectTimeout = 8000;
+      Response response;
+      if (dataHub != null) {
+        response = await dio.get(dataHub.nextPageUrl);
+        if (response.statusCode == HttpStatus.ok) {
+          var data = response.data;
+          moreData.add(DataHub.fromJson(data));
+          print(moreData[0].nextPageUrl);
+          //print(dataHub.issueList[0].itemList[0].data.text);
+        }
       }
     } catch (e) {
       return print(e);

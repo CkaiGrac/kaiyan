@@ -216,7 +216,20 @@ flutter:
     - images/video_player_bg_color.png 
     - images/wifi_preload.png 
     
-  
+  fonts:
+    - family: LanTing
+      fonts:
+        - asset: fonts/FZLanTingHeiS-L-GB-Regular.TTF
+
+    - family: LanTing-Bold
+      fonts:
+        - asset: fonts/FZLanTingHeiS-DB1-GB-Regular.TTF
+          weight: 700
+
+    - family: Lobster
+      fonts:
+        - asset: fonts/Lobster-1.4.otf
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
