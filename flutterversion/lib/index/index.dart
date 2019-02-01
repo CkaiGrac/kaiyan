@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../index/navigation_icon_view.dart';
 import '../home/home_page.dart';
 import '../category/category_page.dart';
 import '../hot/hot_page.dart';
-import '../global_config.dart';
 
 /*
  * @Created Date: 2019-01-26 15:56

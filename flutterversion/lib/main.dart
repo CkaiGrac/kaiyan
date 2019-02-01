@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'index/index.dart';
-import 'global_config.dart';
 
 void main() => runApp(Kaiyan());
 
