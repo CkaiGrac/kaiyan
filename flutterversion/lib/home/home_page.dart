@@ -27,14 +27,13 @@ class _HomePageState extends State<HomePage> {
   Dio dio = new Dio();
   bool isRequsetedItem = false;
 
-  ScrollController _controller = new ScrollController();
+  ScrollController _controller = new ScrollController(keepScrollOffset: false);
 
   @override
   void initState() {
     super.initState();
     print("HomePage初始化");
     getBanner();
-
     _controller.addListener(() {
       if (_controller.position.pixels == _controller.position.maxScrollExtent) {
         print("-------》到达底部");
@@ -48,7 +47,6 @@ class _HomePageState extends State<HomePage> {
     if (dataHub != null && !isRequsetedItem) {
       loadMore();
       isRequsetedItem = true;
-      //print(moreData[0].nextPageUrl);
     }
 
     return new MaterialApp(
@@ -57,17 +55,27 @@ class _HomePageState extends State<HomePage> {
             ? new Center(
                 child: CircularProgressIndicator(),
               )
-            : new SingleChildScrollView(
-                controller: _controller,
-                child: new Column(
-                  children: <Widget>[
-                    bannerView(context, bannerList),
-                    itemView(context, itemList),
-                  ],
+            : new RefreshIndicator(
+                onRefresh: _onRefresh,
+                child: new SingleChildScrollView(
+                  controller: _controller,
+                  child: new Column(
+                    children: <Widget>[
+                      bannerView(context, bannerList),
+                      itemView(context, itemList),
+                    ],
+                  ),
                 ),
               ),
       ),
     );
+  }
+
+  Future<Null> _onRefresh() async {
+    bannerList.clear();
+    itemList.clear();
+    getBanner();
+    isRequsetedItem = false;
   }
 
   void getBanner() async {

@@ -9,8 +9,10 @@ import '../bean/Item.dart';
 Widget itemView(BuildContext context, List<Item> itemList) {
   return new Container(
     child: new ListView.builder(
+      controller: new ScrollController(keepScrollOffset: false),
       physics: new NeverScrollableScrollPhysics(),
       shrinkWrap: true,
+      primary: false,
       itemCount: itemList.length,
       itemBuilder: (BuildContext context, int position) {
         if (itemList[position].type == "textHeader") {
