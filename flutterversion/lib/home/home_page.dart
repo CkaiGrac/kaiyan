@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   Dio dio = new Dio();
   bool isRequsetedItem = false;
 
-  ScrollController _controller = new ScrollController(keepScrollOffset: false);
+  ScrollController _controller = new ScrollController();
 
   @override
   void initState() {
@@ -59,6 +59,7 @@ class _HomePageState extends State<HomePage> {
                 onRefresh: _onRefresh,
                 child: new SingleChildScrollView(
                   controller: _controller,
+                  physics: new ClampingScrollPhysics(),
                   child: new Column(
                     children: <Widget>[
                       bannerView(context, bannerList),

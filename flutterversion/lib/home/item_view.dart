@@ -9,16 +9,14 @@ import '../bean/Item.dart';
 Widget itemView(BuildContext context, List<Item> itemList) {
   return new Container(
     child: new ListView.builder(
-      controller: new ScrollController(keepScrollOffset: false),
       physics: new NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      primary: false,
       itemCount: itemList.length,
       itemBuilder: (BuildContext context, int position) {
         if (itemList[position].type == "textHeader") {
           return new Center(
             child: new Container(
-              margin: EdgeInsets.only(bottom: 18.0),
+              margin: EdgeInsets.only(bottom: 5.0, top: 5.0),
               child: new Text(
                 itemList[position].data.text,
                 style: new TextStyle(

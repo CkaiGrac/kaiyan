@@ -18,7 +18,16 @@ class _CategoryPageState extends State<CategoryPage> {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('分类'),
+          elevation: 0.5,
+          backgroundColor: Colors.white,
+          title: new Text(
+            '分类',
+            style: new TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+              fontFamily: 'LanTing-Bold',
+            ),
+          ),
           actions: <Widget>[new Container()],
         ),
         body: new Center(
