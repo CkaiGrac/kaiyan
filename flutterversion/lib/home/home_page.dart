@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 import 'package:flutterversion/global_config.dart';
 import 'dart:core';
 import '../bean/DataHub.dart';
@@ -7,7 +6,6 @@ import '../bean/Item.dart';
 import '../home/banner_view.dart';
 import '../home/item_view.dart';
 import '../net/network_manager.dart';
-import '../home/title_bar.dart';
 /*
  * @Created Date: 2019-01-26 17:06
  * @Author: Ckai
@@ -25,10 +23,9 @@ class _HomePageState extends State<HomePage> {
   DataHub dataHub;
   List<Item> itemList = <Item>[];
   List<Item> bannerList = <Item>[];
-  Dio dio = new Dio();
   bool isRequsetedItem = false;
   HttpManager dioManager = HttpManager.instance;
-  bool isVisible = false;
+  //bool isVisible = false;
 
   ScrollController _controller = new ScrollController();
 

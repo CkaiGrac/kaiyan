@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'dart:io';
 import '../bean/DataHub.dart';
 import '../bean/Item.dart';
+import '../bean/Category.dart';
+import '../bean/category_list.dart';
 /*
  * @Created Date: 2019-02-05 14:24
  * @Author: Ckai
@@ -16,6 +18,7 @@ class HttpManager {
   Response response;
   DataHub dataHub;
   List<Item> list = <Item>[];
+  CategoryList categoryList;
 
   HttpManager._internal() {
     dio = new Dio();
@@ -42,5 +45,18 @@ class HttpManager {
       print(e);
     }
     return dataHub;
+  }
+
+  Future<CategoryList> doGetCategory(String url) async {
+    try {
+      response = await dio.get(url);
+      if (response.statusCode == HttpStatus.ok) {
+        var data = response.data;
+        categoryList = CategoryList.fromJson(data);
+      }
+    } catch (e) {
+      print(e);
+    }
+    return categoryList;
   }
 }

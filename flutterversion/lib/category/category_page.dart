@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import '../net/network_manager.dart';
+import '../bean/Category.dart';
+import 'package:flutterversion/global_config.dart';
+import '../bean/category_list.dart';
+import '../category/item_view.dart';
 /*
  * @Created Date: 2019-01-26 17:07
  * @Author: Ckai
@@ -13,6 +18,16 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
+  HttpManager dioManager = HttpManager.instance;
+  CategoryList categoryList;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getCategory();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -28,12 +43,39 @@ class _CategoryPageState extends State<CategoryPage> {
               fontFamily: 'LanTing-Bold',
             ),
           ),
-          actions: <Widget>[new Container()],
         ),
-        body: new Center(
-          child: null,
+        body: new SingleChildScrollView(
+          physics: new ClampingScrollPhysics(),
+          child: new Container(
+            child: new Column(
+              children: <Widget>[
+                GridView.count(
+                  physics: new NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  children: categoryList.categorys.map((category) {
+                    return itemView(context, category);
+                  }).toList(),
+                ),
+                new Container(
+                  margin: EdgeInsets.only(bottom: 30.0),
+                  child: new Text(
+                    "-The End-",
+                    style: new TextStyle(fontSize: 18.0, fontFamily: 'Lobster'),
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );
+  }
+
+  Future<void> getCategory() async {
+    categoryList = await dioManager
+        .doGetCategory(GlobalConfig.BASEAPI + GlobalConfig.CATEGORIES);
+    //print(categoryList.categorys[0].description);
+    setState(() {});
   }
 }

@@ -38,7 +38,7 @@ Widget itemView(BuildContext context, List<Item> itemList) {
             print(itemList[position].data.playUrl);
           },
           child: new Card(
-            elevation: 0.3,
+            elevation: 0.4,
             child: new Column(
               children: <Widget>[
                 new Container(

@@ -18,7 +18,7 @@ class GlobalConfig {
 
   ///还要加上[id=]参数
   ///某一分类的详细视频
-  static final String CATEGORIES_LisT = "v4/categories/detail/index?";
+  static final String CATEGORIES_LIST = "v4/categories/detail/index?";
 
   //热门分类，只有周排行，月排行，总排行的 api地址
   static final String HOT_CATEGORY = "http://baobab.kaiyanapp.com/api/v4/rankList";
