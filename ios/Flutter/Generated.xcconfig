@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Library/flutter
-FLUTTER_APPLICATION_PATH=/Users/apple/Desktop/AndroidTest/kaiyan/flutterversion
-FLUTTER_TARGET=/Users/apple/Desktop/AndroidTest/kaiyan/flutterversion/lib/main.dart
+FLUTTER_APPLICATION_PATH=/Users/apple/Desktop/AndroidTest/kaiyan
+FLUTTER_TARGET=/Users/apple/Desktop/AndroidTest/kaiyan/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Library/flutter/bin/cache/artifacts/engine/ios
