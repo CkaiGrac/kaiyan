@@ -19,7 +19,6 @@ class _IndexState extends State<Index> {
   int _currentIndex = 0;
   var tabImages;
   var appBarTitles = ['开眼精选', '分类', '热门'];
-  List<StatefulWidget> _pageList;
 
   Image getTabIcon(int currentIndex) {
     if (currentIndex == _currentIndex) {
@@ -63,8 +62,6 @@ class _IndexState extends State<Index> {
         getTabImage('images/ic_tab_strip_icon_follow_selected.png')
       ],
     ];
-
-    _pageList = [new HomePage(), new CategoryPage(), new HotPage()];
   }
 
   @override
@@ -97,12 +94,12 @@ class _IndexState extends State<Index> {
       home: new Scaffold(
         body: new Container(
           child: IndexedStack(
+            index: _currentIndex,
             children: <Widget>[
               new HomePage(),
               new CategoryPage(),
               new HotPage()
             ],
-            index: _currentIndex,
           ),
         ),
         bottomNavigationBar: bottomNavigationBar,

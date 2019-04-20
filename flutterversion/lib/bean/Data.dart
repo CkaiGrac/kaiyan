@@ -9,6 +9,7 @@ import '../bean/WebUrl.dart';
 import '../bean/PlayInfo.dart';
 import '../bean/User.dart';
 import '../bean/ParentReply.dart';
+import '../bean/Header.dart';
 
 part 'Data.g.dart';
 
@@ -17,6 +18,9 @@ class Data {
   String dataType;
   List<Item> itemList;
   num id;
+  num likeCount;
+  num createTime;
+  String message;
   String title;
   String description;
   String library;
@@ -65,11 +69,16 @@ class Data {
   ParentReply parentReply;
   User user;
 
+  Header header;
+
   Data({
     this.dataType,
     this.itemList,
     this.id,
     this.title,
+    this.likeCount,
+    this.createTime,
+    this.header,
     this.description,
     this.library,
     this.tags,

@@ -15,6 +15,11 @@ Data _$DataFromJson(Map<String, dynamic> json) {
           ?.toList(),
       id: json['id'] as num,
       title: json['title'] as String,
+      likeCount: json['likeCount'] as num,
+      createTime: json['createTime'] as num,
+      header: json['header'] == null
+          ? null
+          : Header.fromJson(json['header'] as Map<String, dynamic>),
       description: json['description'] as String,
       library: json['library'] as String,
       tags: (json['tags'] as List)
@@ -78,13 +83,17 @@ Data _$DataFromJson(Map<String, dynamic> json) {
           : ParentReply.fromJson(json['parentReply'] as Map<String, dynamic>),
       user: json['user'] == null
           ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>));
+          : User.fromJson(json['user'] as Map<String, dynamic>))
+    ..message = json['message'] as String;
 }
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'dataType': instance.dataType,
       'itemList': instance.itemList,
       'id': instance.id,
+      'likeCount': instance.likeCount,
+      'createTime': instance.createTime,
+      'message': instance.message,
       'title': instance.title,
       'description': instance.description,
       'library': instance.library,
@@ -129,5 +138,6 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'text': instance.text,
       'font': instance.font,
       'parentReply': instance.parentReply,
-      'user': instance.user
+      'user': instance.user,
+      'header': instance.header
     };

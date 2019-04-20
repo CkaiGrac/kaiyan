@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../bean/Item.dart';
+import '../global_config.dart';
+import '../widget/detail_page.dart';
 /*
  * @Created Date: 2019-02-01 13:22
  * @Author: Ckai
@@ -7,7 +9,9 @@ import '../bean/Item.dart';
  */
 
 Widget itemView(BuildContext context, List<Item> itemList) {
-  return new Container(
+  return new MediaQuery.removePadding(
+    context: context,
+    removeTop: true,
     child: new ListView.builder(
       physics: new NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -36,6 +40,14 @@ Widget itemView(BuildContext context, List<Item> itemList) {
         return new GestureDetector(
           onTap: () {
             print(itemList[position].data.playUrl);
+            Navigator.push(
+              context,
+              new MaterialPageRoute(
+                builder: (context) => new DetailPage(
+                      item: itemList[position],
+                    ),
+              ),
+            );
           },
           child: new Card(
             elevation: 0.4,
@@ -83,7 +95,8 @@ Widget itemView(BuildContext context, List<Item> itemList) {
                             new Container(
                               margin: EdgeInsets.only(top: 3.0),
                               child: new Text(
-                                tagsText,
+                                tagsText +
+                                    "${durationFormat(itemList[position].data.duration)}",
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: new TextStyle(

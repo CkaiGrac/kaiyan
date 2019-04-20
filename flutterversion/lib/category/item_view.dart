@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../bean/Category.dart';
+import '../category/category_detail_page.dart';
 /*
  * @Created Date: 2019-02-07 13:23
  * @Author: Ckai
@@ -10,6 +11,14 @@ Widget itemView(BuildContext context, Category category) {
   return new GestureDetector(
     onTap: () {
       print(category.id);
+      Navigator.push(
+        context,
+        new MaterialPageRoute(
+          builder: (context) => new CategoryDetailPage(
+                category: category,
+              ),
+        ),
+      );
     },
     child: new Card(
       elevation: 0.4,
@@ -24,9 +33,9 @@ Widget itemView(BuildContext context, Category category) {
               '#' + category.name,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 18.0,
+                fontSize: 19.0,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'LanTing-Bold',
+                fontFamily: 'LanTing',
               ),
             ),
           )

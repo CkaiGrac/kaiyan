@@ -1,9 +1,11 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'dart:io';
 import '../bean/DataHub.dart';
 import '../bean/Item.dart';
-import '../bean/Category.dart';
 import '../bean/category_list.dart';
+import '../bean/Issue.dart';
 /*
  * @Created Date: 2019-02-05 14:24
  * @Author: Ckai
@@ -17,6 +19,7 @@ class HttpManager {
   Dio dio;
   Response response;
   DataHub dataHub;
+  Issue issue;
   List<Item> list = <Item>[];
   CategoryList categoryList;
 
@@ -42,7 +45,7 @@ class HttpManager {
         dataHub = DataHub.fromJson(data);
       }
     } catch (e) {
-      print(e);
+      print(e.toString());
     }
     return dataHub;
   }
@@ -55,8 +58,65 @@ class HttpManager {
         categoryList = CategoryList.fromJson(data);
       }
     } catch (e) {
-      print(e);
+      print(e.toString());
     }
     return categoryList;
+  }
+
+  Future<Issue> doGetRanking(String url) async {
+    try {
+      response = await dio.get(url);
+      if (response.statusCode == HttpStatus.ok) {
+        var data = response.data;
+        issue = Issue.fromJson(data);
+      }
+    } catch (e) {
+      print("doGetRanking " + e.toString());
+    }
+    return issue;
+  }
+
+  Future<Issue> doGetRelated(String url) async {
+    try {
+      response = await dio.get(url);
+      if (response.statusCode == HttpStatus.ok) {
+        var data = response.data;
+        issue = Issue.fromJson(data);
+      }
+    } catch (e) {
+      print("doGetRelated " + e.toString());
+    }
+    return issue;
+  }
+
+  Future<Issue> doGetCategoryDetailData(String url) async {
+    try {
+      response = await dio.get(url);
+      if (response.statusCode == HttpStatus.ok) {
+        var data = response.data;
+        issue = Issue.fromJson(data);
+        //print(data);
+      } else {
+        print("请求出错");
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+    return issue;
+  }
+
+  Future<Issue> doGetReplyData(String url) async {
+    try {
+      response = await dio.get(url);
+      if (response.statusCode == HttpStatus.ok) {
+        var data = response.data;
+        issue = Issue.fromJson(data);
+      } else {
+        print("请求出错");
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+    return issue;
   }
 }

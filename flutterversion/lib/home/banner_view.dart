@@ -11,7 +11,7 @@ import '../widget/jump_show.dart';
 
 Widget bannerView(BuildContext context, List<Item> bannerList) {
   final double statusBarHeight = MediaQuery.of(context).padding.top;
-  final double bottomHeight = MediaQuery.of(context).padding.bottom;
+  //final double bottomHeight = MediaQuery.of(context).padding.bottom;
 
   return new Container(
     margin: EdgeInsets.only(top: statusBarHeight),
@@ -24,10 +24,11 @@ Widget bannerView(BuildContext context, List<Item> bannerList) {
         //autoplay: true,
         pagination: new SwiperPagination(
           builder: new DotSwiperPaginationBuilder(
-              size: 8.0,
-              color: Colors.grey,
-              activeColor: Colors.white,
-              activeSize: 8.0),
+            size: 8.0,
+            color: Colors.grey,
+            activeColor: Colors.white,
+            activeSize: 8.0,
+          ),
         ),
         onTap: (index) {
           print(bannerList[index].data.playUrl);
@@ -36,10 +37,11 @@ Widget bannerView(BuildContext context, List<Item> bannerList) {
           return new Stack(
             fit: StackFit.expand,
             children: <Widget>[
-              new Image.network(bannerList[index].data.cover.feed,
+              new Image.network(bannerList[index].data?.cover?.feed,
                   fit: BoxFit.fill),
               new Container(
                 color: Color(0x55000000),
+                height: 3.6 / 10 * MediaQuery.of(context).size.height,
               ),
               //new Image.asset("images/home_page_header_icon.png",width: 20,height: 20,),
               new Positioned(
@@ -58,7 +60,7 @@ Widget bannerView(BuildContext context, List<Item> bannerList) {
                 child: new Center(
                   child: new JumpShowTextView(
                     milliseconds: 800,
-                    text: bannerList[index].data.title,
+                    text: bannerList[index].data?.title,
                     style: new TextStyle(
                         color: Colors.white,
                         fontSize: 17.0,
@@ -73,7 +75,7 @@ Widget bannerView(BuildContext context, List<Item> bannerList) {
                 child: new Center(
                   child: new JumpShowTextView(
                     milliseconds: 800,
-                    text: bannerList[index].data.slogan,
+                    text: bannerList[index].data?.slogan,
                     style: new TextStyle(
                         color: Colors.white,
                         fontSize: 13.0,

@@ -1,6 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import '../net/network_manager.dart';
-import '../bean/Category.dart';
 import 'package:flutterversion/global_config.dart';
 import '../bean/category_list.dart';
 import '../category/item_view.dart';
@@ -44,30 +45,37 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
         ),
-        body: new SingleChildScrollView(
-          physics: new ClampingScrollPhysics(),
-          child: new Container(
-            child: new Column(
-              children: <Widget>[
-                GridView.count(
-                  physics: new NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  crossAxisCount: 2,
-                  children: categoryList.categorys.map((category) {
-                    return itemView(context, category);
-                  }).toList(),
-                ),
-                new Container(
-                  margin: EdgeInsets.only(bottom: 30.0),
-                  child: new Text(
-                    "-The End-",
-                    style: new TextStyle(fontSize: 18.0, fontFamily: 'Lobster'),
+        body: categoryList == null
+            ? new Center(
+                child: CircularProgressIndicator(),
+              )
+            : new SingleChildScrollView(
+                physics: new ClampingScrollPhysics(),
+                child: new Container(
+                  child: new Column(
+                    children: <Widget>[
+                      GridView.count(
+                        physics: new NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        crossAxisCount: 2,
+                        children: categoryList.categorys.map(
+                          (category) {
+                            return itemView(context, category);
+                          },
+                        ).toList(),
+                      ),
+                      new Container(
+                        margin: EdgeInsets.only(bottom: 30.0),
+                        child: new Text(
+                          "-The End-",
+                          style: new TextStyle(
+                              fontSize: 18.0, fontFamily: 'Lobster'),
+                        ),
+                      ),
+                    ],
                   ),
-                )
-              ],
-            ),
-          ),
-        ),
+                ),
+              ),
       ),
     );
   }
