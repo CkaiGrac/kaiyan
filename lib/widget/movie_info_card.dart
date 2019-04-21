@@ -5,13 +5,12 @@ import '../bean/Item.dart';
 import '../global_config.dart';
 import '../bean/Issue.dart';
 import '../net/network_manager.dart';
-import '../global_config.dart';
 import '../widget/bottomsheet_view.dart';
 
 /*
  * @Created Date: 2019-04-08 13:33
  * @Author: Ckai
- * @Description: 
+ * @Description: 视频信息卡片
  */
 class MovieInfoCard extends StatefulWidget {
   final Item item;
@@ -35,7 +34,6 @@ class _MovieInfoCardState extends State<MovieInfoCard> {
 
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
     if (widget.item.data?.library == "DAILY")
       tag = " / 开眼精选";
     else
@@ -183,7 +181,7 @@ class _MovieInfoCardState extends State<MovieInfoCard> {
 
   Future<void> _getReplyData(num id) async {
     replyData = await dioManager.doGetReplyData(
-        GlobalConfig.BASEAPI + GlobalConfig.REPLY + "videoId=${id}");
+        GlobalConfig.BASEAPI + GlobalConfig.REPLY + "videoId=$id");
     setState(() {});
   }
 }

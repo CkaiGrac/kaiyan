@@ -4,7 +4,7 @@ import 'package:common_utils/common_utils.dart';
 /*
  * @Created Date: 2019-04-16 18:02
  * @Author: Ckai
- * @Description: 
+ * @Description: 回复布局，不带parentReply
  */
 
 Widget replyView(BuildContext context, Issue replyData, int position) {

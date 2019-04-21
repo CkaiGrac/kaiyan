@@ -5,7 +5,7 @@ import '../widget/detail_page.dart';
 /*
  * @Created Date: 2019-04-20 09:57
  * @Author: Ckai
- * @Description: 
+ * @Description: 这个是分类详情页的item布局
  */
 
 Widget detailItem(

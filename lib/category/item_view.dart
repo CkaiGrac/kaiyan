@@ -4,13 +4,14 @@ import '../category/category_detail_page.dart';
 /*
  * @Created Date: 2019-02-07 13:23
  * @Author: Ckai
- * @Description: 
+ * @Description: 分类页的小部件
  */
 
 Widget itemView(BuildContext context, Category category) {
   return new GestureDetector(
     onTap: () {
       print(category.id);
+      ///点击后跳转到相应的分类详情页
       Navigator.push(
         context,
         new MaterialPageRoute(
@@ -24,7 +25,8 @@ Widget itemView(BuildContext context, Category category) {
       elevation: 0.4,
       child: new Stack(
         children: <Widget>[
-          new Image.network(category.bgPicture, fit: BoxFit.fill),
+          new Image.network(category?.bgPicture, fit: BoxFit.cover),
+          ///覆盖一层半透明的黑色
           new Container(
             color: Color(0x55000000),
           ),

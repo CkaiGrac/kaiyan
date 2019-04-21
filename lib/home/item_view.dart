@@ -5,7 +5,7 @@ import '../widget/detail_page.dart';
 /*
  * @Created Date: 2019-02-01 13:22
  * @Author: Ckai
- * @Description: 
+ * @Description: 首页视频列表小部件
  */
 
 Widget itemView(BuildContext context, List<Item> itemList) {

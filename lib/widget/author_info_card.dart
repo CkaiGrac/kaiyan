@@ -3,7 +3,7 @@ import '../bean/Item.dart';
 /*
  * @Created Date: 2019-04-08 13:48
  * @Author: Ckai
- * @Description: 
+ * @Description: 作者信息卡片
  */
 
 class AuthorInfoCard extends StatefulWidget {

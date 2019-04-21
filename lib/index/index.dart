@@ -93,6 +93,11 @@ class _IndexState extends State<Index> {
     return new MaterialApp(
       home: new Scaffold(
         body: new Container(
+          ///这里用了[IndexedStack]。。
+          ///一开始是为了解决[Tabbar]来回切换都会重新加载页面
+          ///[IndexedStack]不好的地方就是一次性全部加载完所有页面
+          ///也就是说随着页面的增多[IndexedStack]会严重影响app启动性能
+          ///可以从log看到app已启动直接加载下面三个页面
           child: IndexedStack(
             index: _currentIndex,
             children: <Widget>[

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /*
  * @Created Date: 2019-01-30 11:58
  * @Author: Ckai
- * @Description: 
+ * @Description: 逐字显示的部件
  */
 
 class JumpShowTextView extends StatefulWidget {

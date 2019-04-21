@@ -11,7 +11,7 @@ import '../category/category_widget_item.dart';
 /*
  * @Created Date: 2019-04-19 15:54
  * @Author: Ckai
- * @Description: 
+ * @Description: 分类详情页的视频item布局
  */
 class CategoryDetailItem extends StatefulWidget {
   final int id;
@@ -46,6 +46,7 @@ class _CategortDetailItemState extends State<CategoryDetailItem> {
             shrinkWrap: true,
             itemCount: issue.itemList?.length,
             itemBuilder: (context, position) {
+              ///根据不同的type返回不同的布局，同时要注意position
               if (issue.itemList[position]?.type ==
                   "videoCollectionOfHorizontalScrollCard") {
                 if (issue.itemList[position]?.data?.dataType ==

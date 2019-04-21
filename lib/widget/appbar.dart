@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 /*
  * @Created Date: 2019-04-20 10:36
  * @Author: Ckai
- * @Description: 
+ * @Description: 自定义appBar小部件 改变透明度 
  */
 
 Widget mAppBar(double appBarAlpha, {String title}) {

@@ -5,7 +5,7 @@ import 'package:common_utils/common_utils.dart';
 /*
  * @Created Date: 2019-04-16 18:05
  * @Author: Ckai
- * @Description: 
+ * @Description: 回复布局 带parentReply
  */
 Widget replyWithParent(BuildContext context, Issue replyData, int position) {
   String formattedTime = TimelineUtil.format(

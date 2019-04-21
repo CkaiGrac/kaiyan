@@ -13,9 +13,12 @@ import '../widget/appbar.dart';
 /*
  * @Created Date: 2019-03-22 15:19
  * @Author: Ckai
- * @Description: 
+ * @Description: 低程度自定义刷新。。
  */
 
+///就是监听手势滑动，滑动的同时根据滑动的距离改变[swiper]的高度，
+///松手后判断滑动距离:满足刷新距离就执行[_onRefresh]，不满足就执行动画缩回。
+///代码整体太耦合不好拆开来。。
 class RefreshView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

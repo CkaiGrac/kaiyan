@@ -8,7 +8,7 @@ import '../category/item_view.dart';
 /*
  * @Created Date: 2019-01-26 17:07
  * @Author: Ckai
- * @Description: 
+ * @Description: 分类页
  */
 
 class CategoryPage extends StatefulWidget {
@@ -60,10 +60,12 @@ class _CategoryPageState extends State<CategoryPage> {
                         crossAxisCount: 2,
                         children: categoryList.categorys.map(
                           (category) {
+                            ///返回一个小部件
                             return itemView(context, category);
                           },
                         ).toList(),
                       ),
+                      ///底部footer
                       new Container(
                         margin: EdgeInsets.only(bottom: 30.0),
                         child: new Text(
@@ -80,6 +82,7 @@ class _CategoryPageState extends State<CategoryPage> {
     );
   }
 
+  ///网络请求的方法
   Future<void> getCategory() async {
     categoryList = await dioManager
         .doGetCategory(GlobalConfig.BASEAPI + GlobalConfig.CATEGORIES);

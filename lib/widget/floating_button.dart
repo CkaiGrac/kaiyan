@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /*
  * @Created Date: 2019-04-20 11:29
  * @Author: Ckai
- * @Description: 
+ * @Description: 分类详情页的悬浮按钮小部件
  */
 Widget floatingButton() {
   return new Container(

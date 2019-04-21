@@ -4,7 +4,7 @@ import '../home/refresh_view.dart';
 /*
  * @Created Date: 2019-01-26 17:06
  * @Author: Ckai
- * @Description: 
+ * @Description: 首页
  */
 
 class HomePage extends StatefulWidget {

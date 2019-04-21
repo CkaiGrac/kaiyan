@@ -9,7 +9,7 @@ import '../widget/detail_page.dart';
 /*
  * @Created Date: 2019-02-20 11:10
  * @Author: Ckai
- * @Description: 
+ * @Description: 周排、月拍、总排行的通用布局
  */
 
 class RankingView extends StatefulWidget {

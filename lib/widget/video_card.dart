@@ -9,7 +9,7 @@ import '../widget/detail_page.dart';
 /*
  * @Created Date: 2019-04-09 15:09
  * @Author: Ckai
- * @Description: 
+ * @Description: 视频列表卡片
  */
 
 class VideoCardView extends StatefulWidget {
@@ -139,7 +139,7 @@ class _VideoCardViewState extends State<VideoCardView> {
 
   Future<void> _getRelatedData(num id) async {
     issue = await dioManager.doGetRelated(
-        GlobalConfig.BASEAPI + GlobalConfig.RELATEDDATA + "id=${id}");
+        GlobalConfig.BASEAPI + GlobalConfig.RELATEDDATA + "id=$id");
     setState(() {});
   }
 }

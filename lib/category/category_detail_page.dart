@@ -8,7 +8,7 @@ import '../widget/floating_button.dart';
 /*
  * @Created Date: 2019-04-14 15:05
  * @Author: Ckai
- * @Description: 
+ * @Description: 分类详情页
  */
 
 class CategoryDetailPage extends StatefulWidget {

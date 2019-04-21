@@ -4,7 +4,7 @@ import '../bean/Category.dart';
 /*
  * @Created Date: 2019-04-19 15:21
  * @Author: Ckai
- * @Description: 
+ * @Description: 分类详情页头部卡片小部件
  */
 Widget categoryDetailHeader(BuildContext context, Category category) {
   final double statusBarHeight = MediaQuery.of(context).padding.top;

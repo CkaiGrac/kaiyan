@@ -7,7 +7,7 @@ import '../bean/Item.dart';
 /*
  * @Created Date: 2019-01-26 17:08
  * @Author: Ckai
- * @Description: 
+ * @Description: 热门页
  */
 
 class HotPage extends StatefulWidget {

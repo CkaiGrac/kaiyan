@@ -6,7 +6,7 @@ import '../bean/Issue.dart';
 /*
  * @Created Date: 2019-04-17 09:13
  * @Author: Ckai
- * @Description: 
+ * @Description: 向上弹出抽屉
  */
 Widget bottomSheetView(BuildContext context, Issue replyData) {
   return new Column(
@@ -50,6 +50,7 @@ Widget bottomSheetView(BuildContext context, Issue replyData) {
             ),
             new GestureDetector(
               onTap: () {
+                ///点击 X 关闭上弹抽屉
                 Navigator.of(context).pop();
               },
               child: new Image.asset(
@@ -127,6 +128,7 @@ Widget bottomSheetView(BuildContext context, Issue replyData) {
                       ),
                     ),
                   ),
+                  ///根据有无[parentReply]返回不同布局
                   replyData.itemList[position].data?.parentReply == null
                       ? replyView(context, replyData, position)
                       : replyWithParent(context, replyData, position),

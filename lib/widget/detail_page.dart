@@ -10,11 +10,10 @@ import '../widget/video_card.dart';
 /*
  * @Created Date: 2019-04-07 15:34
  * @Author: Ckai
- * @Description: 
+ * @Description: 视频详情页
  */
 
 class DetailPage extends StatefulWidget {
-  @required
   final Item item;
 
   DetailPage({
@@ -35,7 +34,7 @@ class _DetailPageState extends State<DetailPage> {
   void initState() {
     super.initState();
     print(widget.item.data.playUrl);
-    _playerController = VideoPlayerController.network(widget.item.data.playUrl);
+    _playerController = VideoPlayerController.network(widget.item?.data?.playUrl);
     _chewieController = ChewieController(
       videoPlayerController: _playerController,
       aspectRatio: 3 / 2,
@@ -58,11 +57,13 @@ class _DetailPageState extends State<DetailPage> {
       home: Scaffold(
         body: new Stack(
           children: <Widget>[
+            ///背景图片
             new Image.network(
               widget.item.data?.cover?.blurred,
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.height,
             ),
+            ///然后在背景图片上覆盖一份半透明的黑色
             new Container(
               color: Color(0x33000000),
             ),
@@ -76,12 +77,13 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                 ),
+                ///要加Expanded，不然没法滑动
                 new Expanded(
                   child: new SingleChildScrollView(
                     physics: ClampingScrollPhysics(),
                     child: new Column(
                       children: <Widget>[
-                        new MovieInfoCard(
+                        new MovieInfoCard( 
                           item: widget.item,
                         ),
                         new AuthorInfoCard(
@@ -94,7 +96,6 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                 ),
-
                 ///TODO EndView
               ],
             ),
