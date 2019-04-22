@@ -88,8 +88,11 @@ factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 ```
 可以看到没什么大区别，这样也解决了嵌套的问题。
 还没完。
+
 **第三步：**
+
 当写完这两个文件之后会发现，这两个全都红色报错了，还需要运行这个命令来生成 *.g.dart文件
+
 ``flutter packages pub run build_runner build``
 
 
