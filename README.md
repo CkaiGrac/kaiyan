@@ -27,6 +27,7 @@
 - [分类详情页](/lib/category/category_detail_page.dart)
 - [视频播放页](/lib/widget/detail_page.dart)
 - [文字逐字出现动画](/lib/widget/jump_show.dart)
+- [json序列化反序列化](/lib/bean/README.md)
 
 
 <div align="center">
