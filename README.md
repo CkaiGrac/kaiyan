@@ -5,7 +5,7 @@
 
 ##### 注意：由于本人初学flutter以及编程功底不扎实所以在实现方式和代码规范等方面不尽人意
 
-整个代码的结构：
+##### 整个代码的结构：
 ```dart
 - lib
     + bean              //请求数据对应的实体类放这里
@@ -18,6 +18,16 @@
     global_config.dart  //一些配置参数可以放这里
     main.dart           //程序的主入口
 ```
+
+##### 快速导航：
+- [首页](/lib/home/home_page.dart)
+- [分类](/lib/category/category_page.dart)
+- [热门](/lib/hot/hot_page.dart)
+- [简单自定义下拉刷新](/lib/home/refresh_view.dart)
+- [分类详情页](/lib/category/category_detail_page.dart)
+- [视频播放页](/lib/widget/detail_page.dart)
+- [文字逐字出现动画](/lib/widget/jump_show.dart)
+
 
 <div align="center">
 <img src="/screenshot/homePage.png"  height="400" width="200">

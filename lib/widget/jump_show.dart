@@ -7,6 +7,13 @@ import 'package:flutter/material.dart';
  * @Description: 逐字显示的部件
  */
 
+///大概思路：String类型的[showText]和[hideText]
+///关键是[IntTween]这个，它使得动画取值从[0~字长]
+///也就是说10个字就是值从0到10得变化，那么这样一来思路就很清晰了
+///[showText]用来显示文字，[hideText]存储要显示得文字
+///[IntTween]产生得值可以当作下标，
+///[widget.text.substring()]方法用来截取要显示得文字
+///最后赋值给[showText]
 class JumpShowTextView extends StatefulWidget {
   final String text;
   final TextStyle style;
@@ -43,7 +50,7 @@ class _JumpShowTextView extends State<JumpShowTextView>
         CurvedAnimation(parent: animationController, curve: Curves.easeIn));
 
     animation.addListener(() {
-      print('${animation.value}');
+      //print('${animation.value}');
       setState(() {
         showText = widget.text.substring(0, animation.value);
         hideText = widget.text.substring(animation.value, widget.text.length);
