@@ -18,7 +18,8 @@
     global_config.dart  //一些配置参数可以放这里
     main.dart           //程序的主入口
 ```
-
+##### 更新：
+  - [2019-4-24: 更新android端启动页](/lib/home/README.md)
 ##### 快速导航：
 - [首页](/lib/home/home_page.dart)
 - [分类](/lib/category/category_page.dart)

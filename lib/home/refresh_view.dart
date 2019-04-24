@@ -10,6 +10,7 @@ import '../widget/jump_show.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import '../widget/detail_page.dart';
 import '../widget/appbar.dart';
+import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 /*
  * @Created Date: 2019-03-22 15:19
  * @Author: Ckai
@@ -54,6 +55,9 @@ class _RefreshViewState extends State<RefreshView>
   @override
   void initState() {
     super.initState();
+
+    Future.delayed(Duration(milliseconds: 300));
+    FlutterSplashScreen.hide();
 
     print("HomePage初始化");
     getBanner();

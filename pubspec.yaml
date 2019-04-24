@@ -25,6 +25,7 @@ dependencies:
   chewie: ^0.9.7
   video_player: ^0.10.0+5
   common_utils: ^1.1.1
+  flutter_splash_screen: ^0.1.0
 
 dev_dependencies:
   build_runner: ^1.1.3

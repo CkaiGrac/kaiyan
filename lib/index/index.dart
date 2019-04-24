@@ -30,15 +30,15 @@ class _IndexState extends State<Index> {
   Text getTabTitle(int curIndex) {
     if (curIndex == _currentIndex) {
       return new Text(appBarTitles[curIndex],
-          style: new TextStyle(fontSize: 12.0, color: const Color(0xff1296db)));
+          style: new TextStyle(fontSize: 11.0, color: const Color(0xff1296db)));
     } else {
       return new Text(appBarTitles[curIndex],
-          style: new TextStyle(fontSize: 12.0, color: const Color(0xff515151)));
+          style: new TextStyle(fontSize: 11.0, color: const Color(0xff515151)));
     }
   }
 
   Image getTabImage(path) {
-    return new Image.asset(path, width: 48.0, height: 48.0);
+    return new Image.asset(path, width: 45.0, height: 45.0);
   }
 
   @override

@@ -1,6 +1,7 @@
 ##### "这个目录下怎么这么多文件？是不是疯了？"
 其实这个目录下得所有*.g.dart文件都是由``json_serializable``和``json_annotation``这两个官方插件自动生成的，这个项目数据接口比较复杂，嵌套比较严重，最终就成这个样子了。
 **稍微介绍一下如何使用这两个插件：**
+
 **第一步：在``pubspec.yaml``文件中声明这两个插件**
 ```yaml
 dependencies:
@@ -88,8 +89,10 @@ factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 ```
 可以看到没什么大区别，这样也解决了嵌套的问题。
 还没完。
-**第三步：**
-当写完这两个文件之后会发现，这两个全都红色报错了，还需要运行这个命令来生成 *.g.dart文件
-``flutter packages pub run build_runner build``
 
+**第三步：**
+
+当写完这两个文件之后会发现，这两个全都红色报错了，还需要运行这个命令来生成 *.g.dart文件
+
+``flutter packages pub run build_runner build``
 
