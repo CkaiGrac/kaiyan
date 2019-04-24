@@ -93,6 +93,11 @@ factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 **第三步：**
 
 当写完这两个文件之后会发现，这两个全都红色报错了，还需要运行这个命令来生成 *.g.dart文件
+<<<<<<< HEAD
+=======
+
+``flutter packages pub run build_runner build``
+>>>>>>> 695c33c52a0eff77ac925672ec7fc10f7fec264b
 
 ``flutter packages pub run build_runner build``
 
